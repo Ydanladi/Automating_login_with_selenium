@@ -1,4 +1,4 @@
-<!-- imaging beign able to run a program that will allow you to pass your login details and behold got login actions automated
+imaging beign able to run a program that will allow you to pass your login details and behold got login actions automated
 the aim of this project is to get user details for greekforgreek website and automate the whole login process.
 
 there are two files
@@ -22,4 +22,4 @@ HOW TO RUN IT.
 
  python Auto_login.py or python main_project.py(repectively)
 
-  -->
+ 
