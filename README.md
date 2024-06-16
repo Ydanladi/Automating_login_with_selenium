@@ -22,4 +22,9 @@ HOW TO RUN IT.
 
  python Auto_login.py or python main_project.py(repectively)
 
+ # note on users loggin
+ create a file named (.env) and add your unsername and password in the format below.
  
+LOGER="123@gmail.com"
+PASSWORD="1234"
+pip install python-dotenv

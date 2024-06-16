@@ -1,7 +1,7 @@
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 import random
-
+import os
+from dotenv import load_dotenv
 import time
 from selenium.webdriver.common.by import By
 
@@ -14,15 +14,6 @@ user_agents= ['Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHT
               ]
 
 
-
-# getting user details
-username=input('enter your username: ')
-password=input('enter your password: ')
-
-user={
-    'username':username,
-    'password':password
-}
 #randomiozing agent sent
 user_agent_string =random.choice(user_agents)
 
@@ -47,9 +38,12 @@ time.sleep(3)
 login=driver.find_element(By.ID,'Login')
 time.sleep(5)
 
+load_dotenv()
+username =os.getenv("LOGER")
+password=os.getenv("PASSWORD")
 #extracting username and password
-username=login.find_element(By.ID,'luser').send_keys(user['username'])
-password=login.find_element(By.ID,'password').send_keys(user['password'])
+username=login.find_element(By.ID,'luser').send_keys(username)
+password=login.find_element(By.ID,'password').send_keys(password)
 time.sleep(2)
 #logging in
 log=login.find_element(By.CLASS_NAME,'btn.btn-green.signin-button').click()

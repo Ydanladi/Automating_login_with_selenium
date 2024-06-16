@@ -5,7 +5,8 @@ import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 import datetime
-import undetected_chromedriver as uc
+import os
+from dotenv import load_dotenv
 
 
 
@@ -22,13 +23,13 @@ user_agents= ['Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHT
               ]
 
 # getting user details
-username=input('enter your username: ')
-password=input('enter your password: ')
+# username=input('enter your username: ')
+# password=input('enter your password: ')
 
-user={
-    'username':username,
-    'password':password
-}
+# user={
+#     'username':username,
+#     'password':password
+# }
 
 
 #randomiozing agent sent
@@ -53,9 +54,10 @@ time.sleep(3)
 login=driver.find_element(By.ID,'Login')
 time.sleep(5)
 
+load_dotenv('.env')
 #extracting username and password
-username=login.find_element(By.ID,'luser').send_keys(user['username'])
-password=login.find_element(By.ID,'password').send_keys(user['password'])
+username=login.find_element(By.ID,'luser').send_keys(os.getenv("username"))
+password=login.find_element(By.ID,'password').send_keys(os.getenv("password"))
 time.sleep(2)
 #logging in
 log=login.find_element(By.CLASS_NAME,'btn.btn-green.signin-button').click()
@@ -74,11 +76,6 @@ driver.set_window_size(S('Width'),S('Height'))
 
 time.sleep(3)
 #creating function to save screenshot with date and time
-# def showtime():
-#     return datetime.datetime.now().strftime("%H:%M, %d_%m_%y")
-# time.sleep(4)
 
-driver.find_element(By.TAG_NAME,'body').screenshot('data/screenshot.png')
+driver.find_element(By.TAG_NAME,'body').screenshot('data/image.png')
 time.sleep(3)
-
-
